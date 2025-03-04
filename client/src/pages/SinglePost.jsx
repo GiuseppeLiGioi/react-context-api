@@ -1,21 +1,29 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
-import axios from "axios";
+//import { useEffect, useState } from "react";
+import { useEffect } from "react";
+//import axios from "axios";
+import { useGlobalContext } from "../context/GlobalContext";
 
 const SinglePost = () => {
 
 
-    const[singlePost, setSinglePost] = useState( {} )
+    //const[singlePost, setSinglePost] = useState( {} )
     const { id } = useParams()
     const postId = parseInt(id, 10)  //questa riga converte l'id in numero DECIMALE: DETTATO DAL ,10
 
 
     
-    useEffect( () => {
+    /*useEffect( () => {
         axios.get(`http://localhost:3000/api/posts/${id}`)
         .then(res => setSinglePost(res.data))
 
-    }, [id] )
+    }, [id] )*/
+
+    const {singlePost, fetchSinglePost} = useGlobalContext();
+
+    useEffect( () => {
+        fetchSinglePost();
+        }, [])
 
 
     const navigate = useNavigate();

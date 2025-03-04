@@ -20,4 +20,26 @@ const GlobalProvider = ( {children} ) => {
 
     }
 
+
+
+    //posso anche creare una variabile VALUE. e poi passare direttamente la variabile.
+    /*const value = {
+    posts, 
+    singlePost, 
+    fetchPosts, 
+    fetchSinglePost
+    } */
+
+
+
+    return(
+        <GlobalContext.Provider value={{posts, singlePost, fetchPosts, fetchSinglePost}}>
+            {children}
+        </GlobalContext.Provider>
+    )
+
 }
+ 
+const useGlobalContext = () => useContext(GlobalContext);
+
+export {GlobalProvider, useGlobalContext};

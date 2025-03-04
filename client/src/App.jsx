@@ -6,6 +6,11 @@ import DefaultLayout from "./layout/DefaultLayout";
 import SinglePost from './pages/SinglePost';
 
 
+import { GlobalProvider } from './context/GlobalContext';
+
+
+
+
 
 
 
@@ -15,22 +20,23 @@ function App() {
 
   return (
     <>
-
-    
+    <GlobalProvider>
     <BrowserRouter>
 
-    <Routes>
+     <Routes>
 
-    <Route Component={DefaultLayout}>
-    <Route path='/' Component={HomePage}></Route>
-    <Route path='/chisiamo' Component={ChiSiamo}></Route>
-    <Route path='/posts' Component={PostsList}></Route>
-    <Route path='/posts/:id' Component={SinglePost}></Route>
+     <Route Component={DefaultLayout}>
+     <Route path='/' Component={HomePage}></Route>
+     <Route path='/chisiamo' Component={ChiSiamo}></Route>
+     <Route path='/posts' Component={PostsList}></Route>
+     <Route path='/posts/:id' Component={SinglePost}></Route>
 
-    </Route>
-    </Routes>
+     </Route>
+     </Routes>
 
-    </BrowserRouter>
+     </BrowserRouter>
+    </GlobalProvider>
+   
     </>
   )
 }
