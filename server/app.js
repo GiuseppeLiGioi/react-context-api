@@ -13,7 +13,7 @@ const errorsHandler = require('./middlewares/errorsHandler');
 
 
 app.use(cors({
-    origin: 'http://localhost:5175' 
+    origin: 'http://localhost:5173' 
 }) );
 
 app.use(express.static('public'));
